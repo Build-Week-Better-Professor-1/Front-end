@@ -3,11 +3,9 @@ import {axiosWithAuth} from "../utils/axiosWithAuth";
 import { Link } from 'react-router-dom';
 import { StudentListDiv, StudentListItem, SmallBlueButton, BigBlueButton1 } from './styles';
 
-
 const YourStudents = (props) => {
 
     const [students, setStudents] = useState([]);
-
     useEffect(() => {
         axiosWithAuth()
             .get("/api/students")
@@ -37,17 +35,22 @@ const YourStudents = (props) => {
                 return (
                     <div className="student_list">
                         <StudentListItem>
-                           <span>Name:</span> {item.name} 	&nbsp;	&nbsp; <span>Email:</span> {item.email}
+                           <span>Name:{item.name}</span>&nbsp;	&nbsp;
+                           <span>Email:{item.email}</span> 
+                           <span>Student ID:{item.id}</span>
+                           <span>Assignment: {}</span>
                         </StudentListItem>
-                        <Link className="edit" to={`/UpdateStudents/${item.id}`}>Edit</Link>
+                        <Link className="edit" to={`/UpdateStudents/${item.id}`}>Edit</Link> <br></br>
+                        <Link className="Proj" to={`/Projects`}> Assignment </Link>
                         {/* <SmallBlueButton onClick={() => edit}> Edit </SmallBlueButton> */}
-                        <SmallBlueButton  className="edit_delete" onClick={ev => onClickDeleteHandler(ev, item)} >Delete</SmallBlueButton>
-                    </div>
+                        <SmallBlueButton 
+                            className="edit_delete" 
+                            onClick={ev => onClickDeleteHandler(ev, item)}> Delete </SmallBlueButton>
+                   </div>
                 );
             })}
         </StudentListDiv>
     )
 
 }
-
 export default YourStudents;

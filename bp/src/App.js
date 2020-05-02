@@ -11,6 +11,7 @@ import {PrivateRoute} from "./components/PrivateRoute.js";
 import YourStudents from './components/YourStudents.js';
 import AddStudents from './components/AddStudents.js';
 import UpdateStudents from './components/UpdateStudents.js';
+import Projects from './components/Projects';
 // Pictures
 import logo from './img/BPALogo.png';
 // Styles
@@ -46,6 +47,7 @@ function App() {
         <Route exact path='/AddStudents'>       <AddStudents/>    </Route>
         <Route exact path='/YourStudents'>      <YourStudents/>   </Route>
         <Route path='/UpdateStudents/:id'>      <UpdateStudents/> </Route>
+        <Route path='/Projects'>                <Projects/>       </Route>
         <Route path='/'>                        <Home/>           </Route>
       </Switch> 
     </div>
